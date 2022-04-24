@@ -1,11 +1,11 @@
-package ru.hogwarts.school.Controller;
+package ru.hogwarts.school.controller;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.hogwarts.school.Model.Student;
-import ru.hogwarts.school.Service.StudentService;
+import ru.hogwarts.school.model.Student;
+import ru.hogwarts.school.service.StudentService;
 
 import java.util.Collection;
 

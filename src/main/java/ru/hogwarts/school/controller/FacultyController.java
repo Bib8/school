@@ -1,15 +1,12 @@
-package ru.hogwarts.school.Controller;
+package ru.hogwarts.school.controller;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.hogwarts.school.Model.Faculty;
-import ru.hogwarts.school.Model.Student;
-import ru.hogwarts.school.Service.FacultyService;
+import ru.hogwarts.school.model.Faculty;
+import ru.hogwarts.school.service.FacultyService;
 
 import java.util.Collection;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("faculty")
@@ -32,7 +29,7 @@ public class FacultyController {
     }
 
     @PostMapping
-    public ResponseEntity addFaculty(@io.swagger.v3.oas.annotations.parameters.RequestBody Faculty faculty){
+    public ResponseEntity addFaculty(@RequestBody Faculty faculty){
         Faculty addedFaculty = facultyService.addFaculty(faculty);
         return ResponseEntity.ok(addedFaculty);
     }

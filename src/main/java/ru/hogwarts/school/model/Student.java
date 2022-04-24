@@ -1,4 +1,4 @@
-package ru.hogwarts.school.Model;
+package ru.hogwarts.school.model;
 
 import nonapi.io.github.classgraph.json.Id;
 
