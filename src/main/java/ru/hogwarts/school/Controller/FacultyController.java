@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.Model.Faculty;
+import ru.hogwarts.school.Model.Student;
 import ru.hogwarts.school.Service.FacultyService;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 @RestController
@@ -45,16 +47,18 @@ public class FacultyController {
     }
 
     @DeleteMapping("id")
-    public ResponseEntity removeFaculty(@PathVariable Long id){
-        Faculty removedFaculty = facultyService.deleteFaculty(id);
-        if (removedFaculty == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        return ResponseEntity.ok(removedFaculty);
+    public ResponseEntity deleteFaculty(@PathVariable Long id){
+        facultyService.deleteFaculty(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("color")
-    public ResponseEntity<HashMap<Long, Faculty>> filterFacultyByColor(@PathVariable String color){
-        return ResponseEntity.ok(facultyService.filterColorFaculty(color));
+    public ResponseEntity<Collection<Faculty>> filterFacultyByColor(@PathVariable String color){
+        return ResponseEntity.ok(facultyService.findByColor(color));
+    }
+
+    @GetMapping()
+    public ResponseEntity<Collection<Faculty>> getAllStudent (){
+        return ResponseEntity.ok(facultyService.GetAllFaculty());
     }
 }

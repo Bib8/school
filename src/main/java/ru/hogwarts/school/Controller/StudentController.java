@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.Model.Student;
 import ru.hogwarts.school.Service.StudentService;
 
-import java.util.HashMap;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("student")
@@ -43,14 +43,18 @@ public class StudentController {
     }
 
     @DeleteMapping("id")
-    public ResponseEntity removeStrudent(@PathVariable Long id){
-        Student removedStudent = studentService.deleteStudent(id);
-        return ResponseEntity.ok(removedStudent);
+    public ResponseEntity deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping()
+    public ResponseEntity<Collection<Student>> getAllStudent (){
+        return ResponseEntity.ok(studentService.GetAllStudent());
     }
 
     @GetMapping("age")
-    public ResponseEntity<HashMap<Long, Student>> filterStudentsByAge(@PathVariable Integer age){
-        return ResponseEntity.ok(studentService.filterStudent(age));
+    public ResponseEntity<Collection<Student>> findByAge(@PathVariable Integer age){
+        return ResponseEntity.ok(studentService.findByAge(age));
     }
-
 }
