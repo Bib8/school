@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "Hibernate",
+      "type": "java.lang.String",
+      "description": "Description for Hibernate."
+    }
+
+  ] }
