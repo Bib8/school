@@ -11,11 +11,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     List<Student> findByAge(Integer age);
 
-        Collection<Student> findStudentByAgeBetween(Integer minAge, Integer maxAge);
-    Collection<Student> findAllByNameOrderByNameContainsIgnoreCase();
+    Collection<Student> findStudentByAgeBetween(Integer minAge, Integer maxAge);
+    Collection<Student> findAllOrderByNameIgnoreCase();
     Collection<Student> findStudentByNameContainsIgnoreCase(String str);
     Collection<Student> findAllByAgeBefore(Integer age);
-    Collection<Student> findAllByAgeOrderByAge();
+    Collection<Student> findAllOrderByAge();
+    Collection<Student> findAllByNameContainsOrderByNameIgnoreCase(String str);
 
 /*1. Получить всех студентов, возраст которых находится между 10 и 20 (можно подставить любые числа, главное, чтобы нижняя граница была меньше верхней).
 2. Получить всех студентов, но отобразить только список их имен.

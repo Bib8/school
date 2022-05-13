@@ -4,6 +4,8 @@ import nonapi.io.github.classgraph.json.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.util.Objects;
 @Entity
 public class Student {
@@ -14,6 +16,15 @@ public class Student {
 
     private String name;
     private int age;
+
+    @OneToOne(mappedBy = "name")
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
 
     public Long getId() {
         return id;

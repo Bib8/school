@@ -65,12 +65,12 @@ public class StudentController {
 
     @GetMapping("/filterFindAllByNameOrderByName")
     public ResponseEntity<Collection<Student>> findAllByNameOrderByName(){
-        return ResponseEntity.ok(studentService.findAllByNameOrderByName());
+        return ResponseEntity.ok(studentService.findAll());
     }
 
     @GetMapping("/filterFindStudentByNameContains")
-    public ResponseEntity<Collection<Student>> findStudentByNameContains(@RequestParam String str){
-        return ResponseEntity.ok(studentService.findStudentByNameContains(str));
+    public ResponseEntity<Object> findAllByNameContainsOrderByNameIgnoreCase(@RequestParam String str){
+        return ResponseEntity.ok(studentService.findAllByNameContainsOrderByNameIgnoreCase(str));
     }
 
     @GetMapping("/filterFindAllByAgeBefore")

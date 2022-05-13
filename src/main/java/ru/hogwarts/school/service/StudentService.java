@@ -45,8 +45,8 @@ public class StudentService {
         return studentRepository.findStudentByAgeBetween(minAge, maxAge);
     }
 
-    public Collection<Student> findAllByNameOrderByName(){
-        return studentRepository.findAllByNameOrderByNameContainsIgnoreCase();
+    public Collection<Student> findAll(){
+        return studentRepository.findAllOrderByNameIgnoreCase();
     }
     public Collection<Student> findStudentByNameContains(String str){
         return studentRepository.findStudentByNameContainsIgnoreCase(str);
@@ -57,10 +57,11 @@ public class StudentService {
     }
 
     public Collection<Student> findAllByAgeOrderByAge(){
-        return studentRepository.findAllByAgeOrderByAge();
+        return studentRepository.findAllOrderByAge();
     }
 
 
-
-
+    public Object findAllByNameContainsOrderByNameIgnoreCase(String str) {
+        return studentRepository.findAllByNameContainsOrderByNameIgnoreCase(str);
+    }
 }
