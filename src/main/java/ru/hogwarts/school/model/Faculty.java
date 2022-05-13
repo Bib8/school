@@ -1,9 +1,13 @@
 package ru.hogwarts.school.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 import java.util.Objects;
 @Entity
+
 public class Faculty {
 
     @Id
@@ -13,16 +17,10 @@ public class Faculty {
     private String name;
     private String color;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
-    private Student_id student;
+    @OneToMany(mappedBy = "faculty")
+    private Collection<Student> students;
 
-    public void setStudent(Student_id student) {
-        this.student = student;
-    }
-
-    public Student_id getStudent() {
-        return student;
+    public Faculty() {
     }
 
     public Long getId() {

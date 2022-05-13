@@ -11,6 +11,7 @@ import java.util.List;
 public class StudentService {
 
     private final StudentRepository studentRepository;
+
     @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -46,7 +47,7 @@ public class StudentService {
     }
 
     public Collection<Student> findAll(){
-        return studentRepository.findAllOrderByNameIgnoreCase();
+        return studentRepository.findStudentByNameExistsIgnoreCase();
     }
     public Collection<Student> findStudentByNameContains(String str){
         return studentRepository.findStudentByNameContainsIgnoreCase(str);
@@ -57,11 +58,11 @@ public class StudentService {
     }
 
     public Collection<Student> findAllByAgeOrderByAge(){
-        return studentRepository.findAllOrderByAge();
+        return studentRepository.findStudentByAgeExists();
     }
 
 
     public Object findAllByNameContainsOrderByNameIgnoreCase(String str) {
-        return studentRepository.findAllByNameContainsOrderByNameIgnoreCase(str);
+        return studentRepository.findAllByNameContainsOrderByName(str);
     }
 }
