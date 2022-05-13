@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.FacultyRepository;
 import ru.hogwarts.school.model.Faculty;
-
 import java.util.Collection;
 
 @Service
+
 public class FacultyService {
 
     private final FacultyRepository facultyRepository;
+
     @Autowired
     public FacultyService(FacultyRepository facultyRepository) {
         this.facultyRepository = facultyRepository;

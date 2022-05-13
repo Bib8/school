@@ -11,6 +11,7 @@ import java.util.List;
 public class StudentService {
 
     private final StudentRepository studentRepository;
+
     @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -41,4 +42,27 @@ public class StudentService {
         return studentRepository.findByAge(age);
     }
 
+    public Collection<Student> findStudentByAgeBetween(Integer minAge, Integer maxAge){
+        return studentRepository.findStudentByAgeBetween(minAge, maxAge);
+    }
+
+    public Collection<Student> findAll(){
+        return studentRepository.findStudentByNameExistsIgnoreCase();
+    }
+    public Collection<Student> findStudentByNameContains(String str){
+        return studentRepository.findStudentByNameContainsIgnoreCase(str);
+    }
+
+    public Collection<Student> findAllByAgeBefore(Integer age){
+        return studentRepository.findAllByAgeBefore(age);
+    }
+
+    public Collection<Student> findAllByAgeOrderByAge(){
+        return studentRepository.findStudentByAgeExists();
+    }
+
+
+    public Object findAllByNameContainsOrderByNameIgnoreCase(String str) {
+        return studentRepository.findAllByNameContainsOrderByName(str);
+    }
 }

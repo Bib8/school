@@ -57,4 +57,39 @@ public class StudentController {
     public ResponseEntity<Collection<Student>> findByAge(@PathVariable Integer age){
         return ResponseEntity.ok(studentService.findByAge(age));
     }
+
+    @GetMapping("/filterByAgeBetween")
+    public ResponseEntity<Collection<Student>> findStudentByAgeBetween(@RequestParam Integer minAge, Integer maxAge){
+        return ResponseEntity.ok(studentService.findStudentByAgeBetween(minAge, maxAge));
+    }
+
+    @GetMapping("/filterFindAllByNameOrderByName")
+    public ResponseEntity<Collection<Student>> findAllByNameOrderByName(){
+        return ResponseEntity.ok(studentService.findAll());
+    }
+
+    @GetMapping("/filterFindStudentByNameContains")
+    public ResponseEntity<Object> findAllByNameContainsOrderByNameIgnoreCase(@RequestParam String str){
+        return ResponseEntity.ok(studentService.findAllByNameContainsOrderByNameIgnoreCase(str));
+    }
+
+    @GetMapping("/filterFindAllByAgeBefore")
+    public ResponseEntity<Collection<Student>> findAllByAgeBefore(@RequestParam Integer age){
+        return ResponseEntity.ok(studentService.findAllByAgeBefore(age));
+    }
+    @GetMapping("/filterFindAllByAgeOrderByAge")
+    public ResponseEntity<Collection<Student>> findAllByAgeOrderByAge(){
+        return ResponseEntity.ok(studentService.findAllByAgeOrderByAge());
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
